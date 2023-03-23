@@ -1,59 +1,57 @@
 const imagesArray = [
     {
-        immagine: "01.webp",
+        immagine: "img/01.webp",
         titolo: "Marvel's Spiderman Miles Morale",
         descrizione: "Experience the rise of Miles Morales as the new hero masters incredible, explosive new power to become his own Spider-Man",
     },
     {
-        immagine: "02.webp",
+        immagine: "img/02.webp",
         titolo: "Verdi",
         descrizione: "45",
     },
     {
-        immagine: "03.webp",
+        immagine: "img/03.webp",
         titolo: "Gialli",
         descrizione: "15",
     },
     {
-        immagine: "04.webp",
+        immagine: "img/04.webp",
         titolo: "Relli",
         descrizione: "27",
     },
     {
-        immagine: "05.webp",
+        immagine: "img/05.webp",
         titolo: "Sung",
         descrizione: "12",
     },
 ]
 
-const arrayImg = imagesArray.map((curImg) => )
-console.log(arrayImg);
-arrayImg.innerHTML =  <div class="row-items">${curImg.immagine};</div>;
-
-// const arrayImmagine = imagesArray.filter((curImage) => curImage.immagine);
-// console.log(arrayImmagine);
-// const arrayTitolo = imagesArray.filter((curTitle) => curTitle.titolo);
-// console.log(arrayTitolo);
-// const arrayDescrizione = imagesArray.filter((curDescr) => curDescr.descrizione);
-// console.log(arrayDescrizione);
-
 const itemsContainer = document.querySelector(".row-items")
 
-// let timer;
-const timerImage = imagesArray;
-
-for (let i = 0; i < imagesArray.length; i++) {
-    const currentImage = imagesArray [i];
-
+imagesArray.forEach((curImg) => {
+    console.log(curImg);
     const rowItem =
-        `<div class="item">
-            <img src="${currentImage}" alt="">
-        </div>`;
+    `<div class="item">
+    <img src="${curImg.immagine}" alt="">
+    </div>`
+    itemsContainer.innerHTML += rowItem;
+})
 
-        itemsContainer.innerHTML += rowItem;
+// let timer;
+// const timerImage = imagesArray;
 
-        console.log(rowItem);
-}
+// for (let i = 0; i < imagesArray.length; i++) {
+//     const currentImage = imagesArray [i];
+
+//     const rowItem =
+//         `<div class="item">
+//             <img src="${currentImage}" alt="">
+//         </div>`;
+
+//         itemsContainer.innerHTML += rowItem;
+
+//         console.log(rowItem);
+// }
 
 //stato di partenza
 const itemsArray = document.getElementsByClassName("item")
@@ -101,7 +99,7 @@ let timer = setInterval (autoPlay, 3000);
 function autoPlay() {
     prevBtn.classList.remove("hidden");
     itemsArray[activeItemIndex].classList.remove("active");
-    activeItemIndex++;
+    if (activeItemIndex++)
         // se siamo arrivati all'ultima slide
         if (activeItemIndex === itemsArray.length) {
             // reimposto activeIndex sulla prima slide
@@ -110,11 +108,16 @@ function autoPlay() {
     itemsArray[activeItemIndex].classList.add("active");
         if (activeItemIndex === 0) {
             prevBtn.classList.add("hidden");
-        }
+        } 
         // se siamo all'ultima immagine, nascondo il pulsante next
         if (activeItemIndex === itemsArray.length - 1) {
             nextBtn.classList.add("hidden");
         } else {
             nextBtn.classList.remove("hidden");
         }
+        
 }
+
+reverseBtn.addEventListener("click", function() {
+    isReverse = !isReverse;    
+})

@@ -45,8 +45,8 @@ img {
 
 .prev, .next {
     position: absolute;
-    left: 90%;
-    transform: translatey(-1200%);
+    top: 50%;
+    transform: translatey(-50%);
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     width: 30px;
@@ -62,9 +62,13 @@ img {
 }
   
 .prev {
-    left: 28px;
+    left: 10px;
 }
   
 .next {
     right: 10px;
+}
+
+.reverseBtn {
+    width: 100%;
 }
